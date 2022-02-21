@@ -2,6 +2,12 @@
 
 This project shows how to implement KubeVela operations in Dagger.
 
+## How It Works
+
+- It first downloads the CUE definitions from APIServer and converts them into local definitions.
+- Then we will create a Dagger plan pointint to the folder containing local definitions.
+- Once we run `dagger up`, it will automatically render and deploy those resources to simulate server operations.
+
 ## Deploy Components and Traits
 
 Save the following to `app.yaml`:
@@ -19,7 +25,7 @@ spec:
         image: crccheck/hello-world
         port: 8000
         # It will prompt error if you specify invalid properties:
-        # invalid: "something"
+        # invalidKey: "value"
       traits:
         - type: ingress
           properties:
