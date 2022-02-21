@@ -18,6 +18,8 @@ spec:
       properties:
         image: crccheck/hello-world
         port: 8000
+        # It will prompt error if you specify invalid properties:
+        # invalid: "something"
       traits:
         - type: ingress
           properties:
@@ -49,6 +51,22 @@ dagger up
 Output:
 
 ```shell
+[✔] applyResources."express-server-Deployment-ingress-Ingress"
+[✔] applyResources."express-server-Deployment"
+[✔] applyResources."express-server-Deployment-ingress-Service"
+```
+
+Check the deployment:
+
+```shell
+kubectl get deploy
+```
+
+Output:
+
+```shell
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+express-server   1/1     1            1           4m17s
 ```
 
 ## Deploy Workflows
@@ -95,4 +113,3 @@ spec:
             message:
               text: Workflow finishes
 ```
-
