@@ -75,6 +75,28 @@ NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 express-server   1/1     1            1           4m17s
 ```
 
+If you add additional key that are invalid:
+
+```yaml
+      properties:
+        image: crccheck/hello-world
+        port: 8000
+        # It will prompt error if you specify invalid properties:
+        invalidKey: "value"
+```
+
+It will fail if you try to input:
+
+```shell
+dagger input yaml app -f .tmp/app.yaml
+```
+
+Output:
+
+```shell
+10:59AM FTL system | unable to create environment: app.spec.components.0.properties: field not allowed: invalidKey
+```
+
 ## Deploy Workflows
 
 Save the following to `app.yaml`:
