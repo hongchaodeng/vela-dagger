@@ -1,12 +1,12 @@
 # Vela Dagger
 
-This project shows how to implement KubeVela operations in Dagger.
+This project shows how to implement KubeVela operations in client side using Dagger.
 
 ## How It Works
 
 - It first downloads the CUE definitions from APIServer and converts them into local definitions.
 - Then we will create a Dagger plan pointint to the folder containing local definitions.
-- Once we run `dagger up`, it will automatically render and deploy those resources to simulate server operations.
+- Once we run `dagger up`, it will automatically render resources and orchestrate deployment to simulate server operations.
 
 ## Deploy Components and Traits
 
