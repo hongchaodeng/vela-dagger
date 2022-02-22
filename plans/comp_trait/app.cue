@@ -9,8 +9,6 @@ app: {
 		...
 	}
 	spec: {
-		components: [...Component]
-		...
+		components: [...#Component]
 	}
-	...
 }

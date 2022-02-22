@@ -1,14 +1,16 @@
 package app
 
-Component: {
-	name: string
-	traits: [...Trait]
-	type: "webservice"
-	properties: {
+#WebService: {
 		image: string
 		port:  int | *"80"
 		cmd?: [...string]
-	}
+}
+
+#Component: {
+	name: string
+	traits: [...Trait]
+	type: "webservice"
+	properties: #WebService
 
 	manifests: [{
 		apiVersion: "apps/v1"
